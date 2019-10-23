@@ -6,8 +6,11 @@ body{
   overflow-y: hidden;
   overflow-x: hidden;
 }
-
+.logo{
+  text-align: center;
+}
 .App-logo {
+  text-align: center;
   height: 30vh;
 }
 
@@ -23,6 +26,7 @@ body{
 }
 .question{
   text-align: justify;
+  padding: 10px;
   font-size: 1.4rem;
   text-transform: uppercase;
 }

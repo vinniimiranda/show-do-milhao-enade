@@ -1,13 +1,13 @@
 import React, { useState } from "react";
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 import logo from "./logo.png";
 import "./App.css";
 
 function App() {
-  const notifySucces = () => toast.success('Reposta Correta');
-  const notifyError = () => toast.error('Reposta Incorreta');
+  const notifySucces = () => toast.success("Reposta Correta");
+  const notifyError = () => toast.error("Reposta Incorreta");
   const [respostas, setRespostas] = useState([
     {
       option: "A",
@@ -38,8 +38,13 @@ function App() {
 
   return (
     <div className="App">
-     <ToastContainer enableMultiContainer position={toast.POSITION.TOP_RIGHT} />
-      <img src={logo} className="App-logo" alt="logo" />
+      <ToastContainer
+        enableMultiContainer
+        position={toast.POSITION.TOP_RIGHT}
+      />
+      <div className="logo">
+        <img src={logo} className="App-logo" alt="logo" />
+      </div>
       <div className="question-card">
         <p className="question">
           Na programação como é chamado o conceito que protege um atributo no
@@ -53,11 +58,9 @@ function App() {
               className="option"
               onClick={() => {
                 if (resposta.correct) {
-                  notifySucces() 
-                 
-            
+                  notifySucces();
                 } else {
-                  notifyError() 
+                  notifyError();
                 }
               }}
             >
@@ -67,7 +70,6 @@ function App() {
           </div>
         ))}
       </div>
-
     </div>
   );
 }
