@@ -1,5 +1,5 @@
 .App {
-  text-align: center;
+  /* text-align: center; */
   background-color: #013161;
 }
 body{
@@ -22,6 +22,7 @@ body{
   border-style: double;
 }
 .question{
+  text-align: justify;
   font-size: 1.4rem;
   text-transform: uppercase;
 }
