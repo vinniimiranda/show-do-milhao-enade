@@ -1,22 +1,74 @@
 .App {
   text-align: center;
+  background-color: #013161;
+}
+body{
+  overflow-y: hidden;
+  overflow-x: hidden;
 }
 
 .App-logo {
-  height: 40vmin;
+  height: 30vh;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+
+
+.question-card{
+  height: 20vh;
+  background-color: #E63A36;
+  color: rgb(230, 230, 230);
+  border: 4px solid rgba(250, 176, 174, 0.699);
+  border-radius: 5px;
+  border-style: double;
+}
+.question{
+  font-size: 1.4rem;
+  text-transform: uppercase;
+}
+.answer-card{
+  width: 100%;
+  height: 48vh;
+  background-color: #013161;
+  color: #fff;
+}
+.option{
+  text-align: left;
+  height: 100%;
+  background-color: #Fff;
+  color: #013161;
+  width: 50%;
+  margin: 1rem auto;
+  border: 4px solid transparent;
+  padding: 15px 5px;
+  border-radius: 10px;
+  box-shadow: 0px 5px 1.2px rgb(137, 141, 206)
+} 
+
+.option:hover{
+  background-color: #04a735;
+  color: #fff;
+  box-shadow: 0px 5px 1.2px rgb(220, 221, 220);
+  cursor: pointer;
 }
 
-.App-link {
-  color: #09d3ac;
+
+.option .number {
+  background-color: #013161;
+  color: #FFF;
+  padding: 15px;
+  border-radius: 30%;
+  font-size: 1.5rem;
+  width: 50px;
+  height: 50px;
+  -webkit-border-radius: 25px;
+  -moz-border-radius: 25px;
+  border-radius: 25px;
+  background: #013161;
+  color: #FFF;
+}
+.option .text {
+  text-transform: uppercase;
+  font-weight: bold;
+  padding: 0 5px;
+  font-size: 1rem ;
 }
