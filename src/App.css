@@ -1,23 +1,28 @@
 .App {
   /* text-align: center; */
-  background-color: #013161;
+  
 }
 body{
   overflow-y: hidden;
   overflow-x: hidden;
-}
-.logo{
-  text-align: center;
-}
-.App-logo {
-  text-align: center;
-  height: 30vh;
+  background-color: #013161;
+  /*
+  background-image: url('./logo.png');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+  background-size: contain;
+  background-blend-mode: lighten;
+  background-clip: content-box; */
 }
 
+.logo {
+  width: 25%;
+  
+}
 
 
 .question-card{
-  height: 20vh;
   background-color: #E63A36;
   color: rgb(230, 230, 230);
   border: 4px solid rgba(250, 176, 174, 0.699);
@@ -25,26 +30,20 @@ body{
   border-style: double;
 }
 .question{
-  text-align: justify;
-  padding: 10px;
+  text-align: center;
+  /* padding: 10px; */
   font-size: 1.4rem;
   text-transform: uppercase;
 }
-.answer-card{
-  width: 100%;
-  height: 48vh;
-  background-color: #013161;
-  color: #fff;
-}
+
 .option{
   text-align: left;
-  height: 100%;
   background-color: #Fff;
   color: #013161;
-  width: 50%;
+  /* width: 50%; */
   margin: 1rem auto;
   border: 4px solid transparent;
-  padding: 15px 5px;
+  padding: 10px 5px;
   border-radius: 10px;
   box-shadow: 0px 5px 1.2px rgb(137, 141, 206)
 } 
@@ -58,22 +57,25 @@ body{
 
 
 .option .number {
-  background-color: #013161;
-  color: #FFF;
-  padding: 15px;
-  border-radius: 30%;
-  font-size: 1.5rem;
-  width: 50px;
-  height: 50px;
+  background-color: #E63A36;
+  padding: 8px;
+  font-size: 1rem;
   -webkit-border-radius: 25px;
   -moz-border-radius: 25px;
   border-radius: 25px;
-  background: #013161;
-  color: #FFF;
+  color: rgb(248, 232, 3);
 }
 .option .text {
   text-transform: uppercase;
   font-weight: bold;
   padding: 0 5px;
-  font-size: 1rem ;
+  /* font-size: 1rem ; */
+}
+.text-center{
+  text-align: center;
+}
+.info{
+  background-color: rgba(255, 255, 255, .6);
+  /* width: 90%; */
+  color: #FFF;
 }
