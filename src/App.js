@@ -82,20 +82,44 @@ function App() {
           </Grid>
           <Grid item xs={4} className="text-center ">
             <div className="info">
-              <h5>Errar</h5>
-              <h4>PERDE TUDO</h4>
+              <span>Errar</span><br/>
+              <span className="valores">PERDE TUDO</span>
             </div>
           </Grid>
           <Grid item xs={4} className="text-center ">
             <div className="info">
-              <h5>Acertar</h5>
-              <h4>100 MIL</h4>
+              <span>Acertar</span><br/>
+              <span className="valores">100 MIL</span>
             </div>
           </Grid>
           <Grid item xs={4} className="text-center ">
             <div className="info">
-              <h5>Parar</h5>
-              <h4>50 MIL</h4>
+              <span>Parar</span><br/>
+              <span className="valores">50 MIL</span>
+            </div>
+          </Grid>
+          <Grid item xs={3} >
+            <div className="menu">
+              <img src="http://icons.iconarchive.com/icons/icons-land/metro-raster-sport/256/Casino-Playing-Cards-icon.png"  /><br/>
+              <span>Cartas</span>
+            </div>
+          </Grid>
+          <Grid item xs={3} >
+            <div className="menu">
+              <img src="https://www.freeiconspng.com/uploads/right-arrow-icon-114837-11.png"  /><br/>
+              <span>Pular</span>
+            </div>
+          </Grid>
+          <Grid item xs={3} >
+            <div className="menu">
+              <img src="https://cdn0.iconfinder.com/data/icons/education-learning/128/123-blocks2-512.png"  /><br/>
+              <span>Placas</span>
+            </div>
+          </Grid>
+          <Grid item xs={3} >
+            <div className="menu">
+              <img src="https://cdn1.iconfinder.com/data/icons/ios-11-glyphs/30/people-512.png"  /><br/>
+              <span>Convidados</span>
             </div>
           </Grid>
         </Grid>

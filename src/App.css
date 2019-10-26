@@ -77,7 +77,29 @@ body{
 .info{
   background-color: rgba(255, 255, 255, .6);
   /* width: 90%; */
-  padding: 5px;
+  /* padding: 5px; */
   border-radius: 5px;
   color: #FFF;
+  font-weight: bold;
+}
+.valores{
+  padding-top: 15px;
+  margin-top: 5px;
+  font-weight: bold;
+  color: #FFDF00;
+}
+.menu{
+  border-radius: 3px;
+  border: 2px solid transparent;
+  text-align: center;
+  box-shadow: 0px 5px 1.2px rgb(154, 154, 158);
+  padding: 3px;
+  /* max-height: 35%; */
+  background-color: #FFF;
+  color: #013161;
+  font-weight: bold;
+}
+.menu img{
+  height: 55px;
+  width: 55px;
 }
