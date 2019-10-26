@@ -46,12 +46,12 @@ function App() {
 
   return (
     <div className="App">
-      <Container maxWidth="sm">
+      <Container maxWidth="sm" className="container">
         <ToastContainer
           enableMultiContainer
           position={toast.POSITION.TOP_RIGHT}
         />
-        <Grid container spacing={2} className="container">
+        <Grid container spacing={2} >
           <Grid item xs={12} style={{ textAlign: "center" }}></Grid>
           <Grid item xs={12}>
             <div className="question-card">
