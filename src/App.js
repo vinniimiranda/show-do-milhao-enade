@@ -1,16 +1,21 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { ToastContainer, toast } from "react-toastify";
 import Grid from "@material-ui/core/Grid";
 import Container from "@material-ui/core/Container";
 
 import "react-toastify/dist/ReactToastify.css";
 
-import logo from "./logo.png";
 import "./App.css";
 
 function App() {
   const notifySucces = () => toast.success("Reposta Correta");
   const notifyError = () => toast.error("Reposta Incorreta");
+  const bgAudio = new Audio("bg.mp3");
+  bgAudio.volume = 0.6;
+  bgAudio.loop = true;
+
+  bgAudio.play();
+
   const [respostas, setRespostas] = useState([
     {
       option: "A",
@@ -47,9 +52,7 @@ function App() {
           position={toast.POSITION.TOP_RIGHT}
         />
         <Grid container spacing={2} className="container">
-          <Grid item xs={12} style={{ textAlign: "center" }}>
-            
-          </Grid>
+          <Grid item xs={12} style={{ textAlign: "center" }}></Grid>
           <Grid item xs={12}>
             <div className="question-card">
               <p className="question">
@@ -78,19 +81,22 @@ function App() {
             ))}
           </Grid>
           <Grid item xs={4} className="text-center ">
-              <div className="info">
-                <h5>Errar</h5>
-              </div>
+            <div className="info">
+              <h5>Errar</h5>
+              <h4>PERDE TUDO</h4>
+            </div>
           </Grid>
           <Grid item xs={4} className="text-center ">
-              <div className="info">
-                <h5>Acertar</h5>
-              </div>
+            <div className="info">
+              <h5>Acertar</h5>
+              <h4>100 MIL</h4>
+            </div>
           </Grid>
           <Grid item xs={4} className="text-center ">
-             <div className="info">
-                <h5>Parar</h5>
-              </div>
+            <div className="info">
+              <h5>Parar</h5>
+              <h4>50 MIL</h4>
+            </div>
           </Grid>
         </Grid>
       </Container>
