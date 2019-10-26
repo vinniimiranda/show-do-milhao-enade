@@ -4,13 +4,13 @@ import Grid from "@material-ui/core/Grid";
 import Container from "@material-ui/core/Container";
 
 import "react-toastify/dist/ReactToastify.css";
-
+import audio from  './bg.mp3'
 import "./App.css";
 
 function App() {
   const notifySucces = () => toast.success("Reposta Correta");
   const notifyError = () => toast.error("Reposta Incorreta");
-  const bgAudio = new Audio("bg.mp3");
+  const bgAudio = new Audio(audio);
   bgAudio.volume = 0.6;
   bgAudio.loop = true;
 
