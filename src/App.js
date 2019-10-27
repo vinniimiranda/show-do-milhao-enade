@@ -1,21 +1,19 @@
 import React, { useState, useEffect } from "react";
-import { ToastContainer, toast } from "react-toastify";
+
 import { confirmAlert } from "react-confirm-alert"; // Import
 import "react-confirm-alert/src/react-confirm-alert.css"; // Import css
 
 import Grid from "@material-ui/core/Grid";
 import Container from "@material-ui/core/Container";
 
-import "react-toastify/dist/ReactToastify.css";
+
 
 import "./App.css";
 import Audio from "./audio/index";
-import Cards from "./icons/cards";
-import Numbers from "./icons/numbers";
-import Arrow from "./icons/arrow";
-import Guests from "./icons/guests";
 import mocked from "./mock/perguntas";
 import Button from "@material-ui/core/Button";
+import { Cards, Arrow, Numbers, Guests } from "./components/HelpMenu";
+
 
 function App() {
   const [errou, setErrou] = useState(false);
@@ -68,10 +66,6 @@ function App() {
   return (
     <div className="App">
       <Container maxWidth="sm" className="container">
-        <ToastContainer
-          enableMultiContainer
-          position={toast.POSITION.TOP_RIGHT}
-        />
         {!errou ? (
           <>
             <Grid container spacing={1}>
@@ -127,32 +121,16 @@ function App() {
                 </div>
               </Grid>*/}
               <Grid item xs={3}>
-                <div className="menu">
-                  <Cards fill="#013161" />
-                  <br />
-                  <span>Cartas</span>
-                </div>
+                <Cards />
               </Grid>
               <Grid item xs={3}>
-                <div className="menu">
-                  <Arrow fill="#013161" />
-                  <br />
-                  <span>Pular</span>
-                </div>
+               <Arrow />
               </Grid>
               <Grid item xs={3}>
-                <div className="menu">
-                  <Numbers fill="#013161" />
-                  <br />
-                  <span>Placas</span>
-                </div>
+                <Numbers />
               </Grid>
               <Grid item xs={3}>
-                <div className="menu">
-                  <Guests fill="#013161" />
-                  <br />
-                  <span>Convidados</span>
-                </div>
+                <Guests />
               </Grid>
             </Grid>
           </>
