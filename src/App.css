@@ -15,10 +15,9 @@ body{
   background-blend-mode: lighten;
   background-clip: content-box; */
 }
-Tem
+
 .logo {
   width: 25%;
-  
 }
 
 .container{
@@ -40,7 +39,7 @@ Tem
 .question{
   text-align: center;
   /* padding: 10px; */
-  font-size: 1.4rem;
+  font-size: 1.2rem;
   text-transform: uppercase;
 }
 
@@ -55,13 +54,13 @@ Tem
   border-radius: 10px;
   box-shadow: 0px 5px 1.2px rgb(137, 141, 206)
 } 
-
+/* 
 .option:hover{
   background-color: #04a735;
   color: #fff;
   box-shadow: 0px 5px 1.2px rgb(220, 221, 220);
   cursor: pointer;
-}
+} */
 
 
 .option .number {
@@ -110,4 +109,31 @@ Tem
 .menu img{
   height: 55px;
   width: 55px;
+}
+.custom-ui {
+  text-align: center;
+  width: 90%;
+  padding: 15px;
+  margin: auto;
+  background: #fff;
+  box-shadow: 0 20px 75px rgba(0, 0, 0, 0.23);
+  color: #013161;
+}
+
+.custom-ui > h1 {
+  margin-top: 0;
+}
+
+.custom-ui > button {
+  width: 20%;
+  padding: 10px;
+  border: 1px solid #013161;
+  margin: 10px;
+  cursor: pointer;
+  background: #013161;
+  color: #FFF;
+  font-size: 14px;
+}
+.react-confirm-alert-overlay{
+  /* background: none !important; */
 }

@@ -1,17 +1,24 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, } from "react";
 import { ToastContainer, toast } from "react-toastify";
+import { confirmAlert } from 'react-confirm-alert'; // Import
+import 'react-confirm-alert/src/react-confirm-alert.css'; // Import css
+
 import Grid from "@material-ui/core/Grid";
 import Container from "@material-ui/core/Container";
 
 import "react-toastify/dist/ReactToastify.css";
 import audio from  './bg.mp3'
 import "./App.css";
+import Cards from "./icons/cards";
+import Numbers from "./icons/numbers";
+import Arrow from "./icons/arrow";
+import Guests from "./icons/guests";
 
 function App() {
-  const notifySucces = () => toast.success("Reposta Correta");
+  const notifySuccess = () => toast.success("Reposta Correta");
   const notifyError = () => toast.error("Reposta Incorreta");
-  const bgAudio = new Audio(audio);
-  bgAudio.volume = 0.6;
+  const bgAudio = new Audio('./bg.mp3');
+  bgAudio.volume = 0.2;
   bgAudio.loop = true;
 
   bgAudio.play();
@@ -44,6 +51,33 @@ function App() {
     }
   ]);
 
+  const submit = (resposta) => {
+    confirmAlert({
+      customUI: ({ onClose }) => {
+        return (
+          <div className='custom-ui'>
+            <h1>Você tem certeza disso?</h1>
+            <p>Deseja confirmar sua resposta?</p>
+            <button onClick={onClose}>Não</button>
+            <button
+              onClick={() => {
+                if (resposta.correct){
+                  notifySuccess()
+                }
+                else{
+                  notifyError()
+                }
+                onClose();
+              }}
+            >
+              Sim
+            </button>
+          </div>
+        );
+      }
+    });
+  };
+
   return (
     <div className="App">
       <Container maxWidth="sm" className="container">
@@ -51,7 +85,7 @@ function App() {
           enableMultiContainer
           position={toast.POSITION.TOP_RIGHT}
         />
-        <Grid container spacing={2} >
+        <Grid container spacing={1} >
           <Grid item xs={12} style={{ textAlign: "center" }}></Grid>
           <Grid item xs={12}>
             <div className="question-card">
@@ -67,11 +101,8 @@ function App() {
                 <div
                   className="option"
                   onClick={() => {
-                    if (resposta.correct) {
-                      notifySucces();
-                    } else {
-                      notifyError();
-                    }
+                    submit(resposta)
+                    
                   }}
                 >
                   <span className="number">{resposta.option}</span>
@@ -100,25 +131,25 @@ function App() {
           </Grid>
           <Grid item xs={3} >
             <div className="menu">
-              <img src="http://icons.iconarchive.com/icons/icons-land/metro-raster-sport/256/Casino-Playing-Cards-icon.png"  /><br/>
+              <Cards fill="#013161" /><br/>
               <span>Cartas</span>
             </div>
           </Grid>
           <Grid item xs={3} >
             <div className="menu">
-              <img src="https://www.freeiconspng.com/uploads/right-arrow-icon-114837-11.png"  /><br/>
+              <Arrow fill="#013161" /><br/>
               <span>Pular</span>
             </div>
           </Grid>
           <Grid item xs={3} >
             <div className="menu">
-              <img src="https://cdn0.iconfinder.com/data/icons/education-learning/128/123-blocks2-512.png"  /><br/>
+              <Numbers fill="#013161" /><br/>
               <span>Placas</span>
             </div>
           </Grid>
           <Grid item xs={3} >
             <div className="menu">
-              <img src="https://cdn1.iconfinder.com/data/icons/ios-11-glyphs/30/people-512.png"  /><br/>
+              <Guests fill="#013161" /><br/>
               <span>Convidados</span>
             </div>
           </Grid>
