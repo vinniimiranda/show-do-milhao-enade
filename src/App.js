@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { ToastContainer, toast } from "react-toastify";
 import { confirmAlert } from "react-confirm-alert"; // Import
 import "react-confirm-alert/src/react-confirm-alert.css"; // Import css
@@ -14,59 +14,51 @@ import Cards from "./icons/cards";
 import Numbers from "./icons/numbers";
 import Arrow from "./icons/arrow";
 import Guests from "./icons/guests";
+import mocked from "./mock/perguntas";
+import Button from "@material-ui/core/Button";
 
 function App() {
   const [errou, setErrou] = useState(false);
-  const [respostas, setRespostas] = useState([
-    {
-      option: "A",
-      value: "Encapsulamento",
-      correct: true
-    },
-    {
-      option: "B",
-      value: "Atributo Privado",
-      correct: false
-    },
-    {
-      option: "C",
-      value: "Atributo Protegido",
-      correct: false
-    },
-    {
-      option: "D",
-      value: "Atributo Abstrato",
-      correct: false
-    },
-    {
-      option: "E",
-      value: "Herança",
-      correct: false
-    }
-  ]);
+  const [timeLeft, setTimeLeft] = useState(45);
+  const [count, setCount] = useState(0);
+  const [pergunta, setPergunta] = useState(mocked[count]);
 
-  const submit = resposta => {
+  useEffect(() => {
+    setPergunta(mocked[count]);
+  }, [count]);
+  const submit = (resposta, i) => {
     confirmAlert({
       customUI: ({ onClose }) => {
         return (
           <div className="custom-ui">
-            <h1>Você tem certeza disso?</h1>
+            <h1>Você tem certeza?</h1>
             <p>Deseja confirmar sua resposta?</p>
-            <button onClick={onClose}>Não</button>
-            <button
+            <Button variant="contained" id="cancel" onClick={onClose}>Não</Button>
+            <Button variant="contained" id="ok"
               onClick={() => {
                 if (resposta.correct) {
+                  let correct = document.getElementById(`resposta${i}`);
+                  correct.className += " blink ";
                   Audio.certaResposta.play();
-                  // notifySuccess()
+                  setTimeout(() => {
+                    correct.className = "option";
+                    setCount(count + 1);
+                  }, 2000);
+                  setTimeLeft(45);
                 } else {
                   Audio.errou.play();
-                  setErrou(true)
+                  let correct = document.getElementById(`resposta${i}`);
+                  correct.className += " blinkErrou ";
+                  setTimeout(() => {
+                    correct.className = "option";
+                    setErrou(true);
+                  }, 2000);
                 }
                 onClose();
               }}
             >
               Sim
-            </button>
+            </Button>
           </div>
         );
       }
@@ -80,26 +72,31 @@ function App() {
           enableMultiContainer
           position={toast.POSITION.TOP_RIGHT}
         />
-        <Grid container spacing={1}>
-          {!errou ? (
-            <>
-              <Grid item xs={12} style={{ textAlign: "center" }}></Grid>
+        {!errou ? (
+          <>
+            <Grid container spacing={1}>
+              {/* <Grid item xs={12} style={{ textAlign: "center" }}></Grid> */}
               <Grid item xs={12}>
                 <div className="question-card">
-                  <p className="question">
-                    Na programação como é chamado o conceito que protege um
-                    atributo no modelo de Classes?
-                  </p>
+                  <Grid container spacing={1}>
+                    <Grid item xs={8}>
+                      <p className="question">{pergunta.pergunta}</p>
+                    </Grid>
+                    <Grid item xs={4} className="timer">
+                      <p className="timeLeft">{timeLeft} seg</p>
+                    </Grid>
+                  </Grid>
                 </div>
               </Grid>
               <Grid item xs={12}>
-                {respostas.map(resposta => (
+                {pergunta.respostas.map((resposta, i) => (
                   <div className="answer" key={resposta.option}>
                     <div
-                      className="option"
+                      className="option "
+                      id={"resposta" + i}
                       onClick={() => {
                         Audio.confirma.play();
-                        submit(resposta);
+                        submit(resposta, i);
                       }}
                     >
                       <span className="number">{resposta.option}</span>
@@ -108,7 +105,7 @@ function App() {
                   </div>
                 ))}
               </Grid>
-              <Grid item xs={4} className="text-center ">
+              {/* <Grid item xs={4} className="text-center "> 
                 <div className="info">
                   <span>Errar</span>
                   <br />
@@ -121,14 +118,14 @@ function App() {
                   <br />
                   <span className="valores">100 MIL</span>
                 </div>
-              </Grid>
+                    </Grid> 
               <Grid item xs={4} className="text-center ">
                 <div className="info">
                   <span>Parar</span>
                   <br />
                   <span className="valores">50 MIL</span>
                 </div>
-              </Grid>
+              </Grid>*/}
               <Grid item xs={3}>
                 <div className="menu">
                   <Cards fill="#013161" />
@@ -157,13 +154,27 @@ function App() {
                   <span>Convidados</span>
                 </div>
               </Grid>
-            </>
-          ) : (
-            <>
-              <h4>Você perdeu!</h4>
-            </>
-          )}
-        </Grid>
+            </Grid>
+          </>
+        ) : (
+          <Grid
+            style={{
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              flexDirection: "column"
+            }}
+          >
+            <Grid item xs={12}>
+              <h1 style={{ color: "#FFF" }}>Você perdeu!</h1>
+            </Grid>
+            <Grid item xs={12}>
+              <Button variant="contained">
+                Reiniciar
+              </Button>
+            </Grid>
+          </Grid>
+        )}
       </Container>
     </div>
   );

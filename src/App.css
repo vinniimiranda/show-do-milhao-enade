@@ -39,8 +39,7 @@ body{
 .question{
   text-align: center;
   /* padding: 10px; */
-  font-size: 1.2rem;
-  text-transform: uppercase;
+  font-size: 1rem;
 }
 
 .option{
@@ -112,9 +111,8 @@ body{
 }
 .custom-ui {
   text-align: center;
-  width: 90%;
-  padding: 15px;
-  margin: auto;
+  width: 500px;
+  padding: 40px;
   background: #fff;
   box-shadow: 0 20px 75px rgba(0, 0, 0, 0.23);
   color: #013161;
@@ -127,13 +125,68 @@ body{
 .custom-ui > button {
   width: 20%;
   padding: 10px;
-  border: 1px solid #013161;
+  
   margin: 10px;
   cursor: pointer;
-  background: #013161;
   color: #FFF;
   font-size: 14px;
 }
+#ok{
+  border: 1px solid #38a107;
+  background: #38a107;
+}
+#cancel{
+  border: 1px solid #ff3800;
+  background: #ff3800;
+}
 .react-confirm-alert-overlay{
   /* background: none !important; */
+}
+
+@keyframes blink {
+  50% {
+    opacity: 0.0;
+  }
+}
+@-webkit-keyframes blink {
+  50% {
+    opacity: 0.0;
+  }
+}
+.blink {
+  animation: blink .5s step-start 0s infinite;
+  -webkit-animation: blink .5s step-start 0s infinite;
+  background: #4df002;
+}
+
+
+@keyframes blinkErrou {
+  50% {
+    opacity: 0.0;
+  }
+}
+@-webkit-keyframes blinkErrou {
+  50% {
+    opacity: 0.0;
+  }
+}
+.blinkErrou{
+  animation: blink .5s step-start 0s infinite;
+  -webkit-animation: blink .5s step-start 0s infinite;
+  background: #f00202;
+}
+.timer, .container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+  
+}
+.timeLeft{
+  border: 2px double #fafafa;
+  border-radius: 50%;
+  padding: 30px 15px;
+  min-width: 50px;
+  text-align: center;
+  
 }
