@@ -15,7 +15,7 @@
   "scripts": {
     "start": "node app.js",
     "dev": "react-scripts start",
-    "constroi": "react-scripts build",
+    "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
